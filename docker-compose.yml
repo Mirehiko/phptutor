@@ -6,7 +6,7 @@ services:
     image: nginx:latest
     # image: tutum/nginx
     ports:
-      - "80:80"
+      - "8257:80"
     links: 
       - php7
     volumes:
@@ -24,7 +24,7 @@ services:
       TZ: "Asia/Yekaterinburg"
     build: ./docker/php7
     ports: 
-      - "9000:9000"
+      - "9257:9000"
     volumes:
       - ./backend:/application/public
     depends_on: 
@@ -40,4 +40,4 @@ services:
       - MYSQL_USER=user
       - MYSQL_PASSWORD=123456
     ports:
-      - "3306:3306"
+      - "3257:3306"
