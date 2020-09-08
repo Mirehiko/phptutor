@@ -1,60 +1,29 @@
 <?php
-
-    $number1 = 257;
-    $number2 = 10;
-    echo $number1 + $number2;
-    echo '<br>';
-
-    $str1 = "Hello";
-    $str2 = 'World';
-    $str3 = "[String]: ".$str1.$str2.'<br>'; // конкатенация строк
-    echo $str3;
-    
-    echo '$str2 $number1<br>';
-    echo "$str2 $number1<br>"; // " - доступ к значениям переменных
+    // ob_start(); //this should be first line of your page
+    $page = '';
+    // var_dump($page);
 
 
-    const NICKNAME = 'mirehiko';
-    define('COOLNAME', 'heroman');
-
-    // простой массив
-    $arr = array(1, 2, 3);
-    var_dump($arr);
-    echo '<br>';
-
-    // ассоциативный массив
-    $arr = [];
-    $arr['one'] = 1;
-    $arr['two'] = 2;
-    $arr['tree'] = 3;
-    array_push($arr, 5);
-    var_dump($arr); 
-    echo '<br>';
-
-    $arr2 = array(
-        'Russia' => 'Moscow',
-        'Japan'  => 'Tokyo',
-        'Germany' => 'Berline',
-        'Italy'  => 'Rome'
-    );
-    var_dump($arr2); 
-    echo '<br>';
-    
-    
-    // Show type of varriable
-    echo gettype($arr),"<br>";
-    echo gettype($number1),"<br>";
-    echo gettype($str1),"<br>";
-
-    // functions
-
-    function printMessage($message) {
-        echo "[print]: $message<br>";
+    switch($_SERVER["REQUEST_URI"]) {
+        case '/':
+            $page = "home.php";
+            break;
+        case '/post.php': 
+            $page = "post.php";
+            break;
+        default: 
+            $page = "home.php";
+            break;
     }
 
+    // var_dump($page);
+    // var_dump($_SERVER);
 
-    printMessage('WTF?');
-
-
-
+    if (file_exists($page)) {
+        header('Location: '.$page);
+    } else {
+        header('Location: 404.php');
+    }
+    exit();
+    // ob_end_flush(); //this should be last line of your page
 ?>
