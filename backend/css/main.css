@@ -33,3 +33,9 @@ main {
 main form {
     width: 300px;
 }
+
+.message {
+    padding: 5px;
+    margin: 0 0 10px;
+    border: 1px solid #ccc;
+}

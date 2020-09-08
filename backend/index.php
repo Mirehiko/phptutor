@@ -9,10 +9,13 @@
             $page = "home.php";
             break;
         case '/post.php': 
-            $page = "post.php";
+            $page = "post/post.php";
+            break;
+        case '/files.php': 
+            $page = "files/files.php";
             break;
         default: 
-            $page = "home.php";
+            $page = "404.php";
             break;
     }
 
@@ -24,6 +27,7 @@
     } else {
         header('Location: 404.php');
     }
+
     exit();
     // ob_end_flush(); //this should be last line of your page
 ?>
